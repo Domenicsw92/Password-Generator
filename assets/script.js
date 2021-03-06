@@ -32,18 +32,22 @@ function generatePassword() {
   }
 
    if (passwordUpperchar === true) {
+     console.log(Upper_Case_Codes)
     Options = Options.concat(Upper_Case_Codes)
   }
 
    if (passwordLowerchar === true) {
+     console.log(Lower_Case_Codes)
      Options= Options.concat(Lower_Case_Codes)
   }
 
   if (passwordNumberchar === true) {
+    console.log(Number_Char_Codes)
     Options = Options.concat(Number_Char_Codes)
   }
 
   if (passwordSpecialchar === true) {
+    console.log(Special_Char_Codes)
     Options = Options.concat(Special_Char_Codes)
   }
 
