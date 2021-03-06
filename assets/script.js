@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var Options = ""
+var Options = "" ;
 var passwordlength = [];
 var Upper_Case_Codes = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var Lower_Case_Codes = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -48,11 +48,12 @@ function generatePassword() {
     console.log(Special_Char_Codes)
     Options = Options.concat(Special_Char_Codes)
   }
+  var password = "";
 
   for (var i = 0; i < passwordlength; i++) {
     var index = Math.floor(Math.random() * Options.length);
     var pickedpassword = Options[index]
-    password += Options[pickedpassword];
+    password += password[pickedpassword];
     console.log(pickedpassword)
   }
 
@@ -64,6 +65,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
     var passwordText = document.querySelector("#password");
+    console.log(passwordText)
     passwordText.value = password;
     console.log(password)
   }
