@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var Options = "" ;
-var passwordlength = [];
+var Options = [];
 var Upper_Case_Codes = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var Lower_Case_Codes = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var Number_Char_Codes = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -13,12 +12,12 @@ var Special_Char_Codes = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",",
 // Add event listener to generate button
 
 function generatePassword() {
-  if (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength)) {
-    passwordLength = parseInt(prompt("Enter a number between 8-128 for your password length"));
-    passwordUpperchar = confirm("Would you like Uppercase Characters?")
-    passwordLowerchar = confirm("Would you like Lowercase Characters?")
-    passwordNumberchar = confirm("Would you like Numbers?")
-    passwordSpecialchar = confirm("Would you like Special Characters?")
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    var passwordLength = parseInt(prompt("Enter a number between 8-128 for your password length"));
+    var passwordUpperchar = confirm("Would you like Uppercase Characters?")
+    var passwordLowerchar = confirm("Would you like Lowercase Characters?")
+    var passwordNumberchar = confirm("Would you like Numbers?")
+    var passwordSpecialchar = confirm("Would you like Special Characters?")
 
 
   }
@@ -48,13 +47,11 @@ function generatePassword() {
     console.log(Special_Char_Codes)
     Options = Options.concat(Special_Char_Codes)
   }
-  var password = "";
+  var password = [];
 
-  for (var i = 0; i < passwordlength; i++) {
+  for (var i = 0; i < passwordLength; i++) {
     var index = Math.floor(Math.random() * Options.length);
-    var pickedpassword = Options[index]
-    password += password[pickedpassword];
-    console.log(pickedpassword)
+    password.push(Options[index]);
   }
 
   return password
@@ -64,11 +61,10 @@ function generatePassword() {
 
 function writePassword() {
   var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    console.log(passwordText)
-    passwordText.value = password;
-    console.log(password)
-  }
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+
+}
 
 
 generateBtn.addEventListener("click", writePassword)
