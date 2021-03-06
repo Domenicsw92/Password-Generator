@@ -1,67 +1,70 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var Options = ""
-var passWordlength = 0;
-var Upper_Case_Codes = arrayFromlowtoHigh(65, 90);
-var Lower_Case_Codes = arrayFromlowtoHigh(97, 122);
-var Number_Char_Codes = arrayFromlowtoHigh(48, 57);
-var Special_Char_Codes = arrayFromlowtoHigh(33, 47).concat(arrayFromlowtoHigh(33, 47)).concat(arrayFromlowtoHigh(58, 64))
-  .concat(arrayFromlowtoHigh(91, 96)).concat(arrayFromlowtoHigh(123, 126));
+var passwordlength = [];
+var Upper_Case_Codes = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var Lower_Case_Codes = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var Number_Char_Codes = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var Special_Char_Codes = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 // Write password to the #password input
 
-function writePassword() {
-  console.log(Upper_Case_Codes)
-
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
-function generatePassword(){
-if (passWordlength < 8 || passWordlength > 128 || isNaN (passWordlength)) {
-passWordlength = prompt("Enter a number between 8-128 for your password lenght");
-passWordupperchar = confirm("Would you like Uppercase Characters?")
-passWordlowerchar = confirm("Would you like Lowercase Characters?")
-passWordnumberchar = confirm("Would you like Numbers?")
-passWordspecialchar = confirm("Would you like Special Characters?")
+
+function generatePassword() {
+  if (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength)) {
+    passwordLength = parseInt(prompt("Enter a number between 8-128 for your password length"));
+    passwordUpperchar = confirm("Would you like Uppercase Characters?")
+    passwordLowerchar = confirm("Would you like Lowercase Characters?")
+    passwordNumberchar = confirm("Would you like Numbers?")
+    passwordSpecialchar = confirm("Would you like Special Characters?")
 
 
-}
+  }
 
-if (!passWordupperchar === false && !passWordlowerchar === false && !passWordnumberchar === false && !passWordspecialchar === false) {
-  confirm("You must select at least one!")
-  generatePassword()
+  if (passwordUpperchar === false && passwordLowerchar === false && passwordNumberchar === false && passwordSpecialchar === false) {
+    confirm("You must select at least one!")
+    generatePassword();
 
-}
+  }
 
-else if (passWordupperchar === true) {
-  includeChar = includeChar.concat(Upper_Case_Codes)
-}
+   if (passwordUpperchar === true) {
+    Options = Options.concat(Upper_Case_Codes)
+  }
 
-else if (passWordlowerchar === true) {
-  includeChar = includeChar.concat(Lower_Case_Codes)
-}
+   if (passwordLowerchar === true) {
+     Options= Options.concat(Lower_Case_Codes)
+  }
 
-else if (passWordnumberchar === true) {
-  includeChar = includeChar.concat(Number_Char_Codes)
-}
+  if (passwordNumberchar === true) {
+    Options = Options.concat(Number_Char_Codes)
+  }
 
-else if (passWordspecialchar === true) {
-  includeChar = includeChar.concat(Special_Char_Codes)
-}
+  if (passwordSpecialchar === true) {
+    Options = Options.concat(Special_Char_Codes)
+  }
+
+  for (var i = 0; i < passwordlength; i++) {
+    var index = Math.floor(Math.random() * Options.length);
+    var pickedpassword = Options[index]
+    password = password.concat(pickedpassword);
+  }
  
-for (var i=0; i < enter; i ++){
-  var pickedpassword = [Math.floor(Math.random * Options.passWordlength)];
-  password. push(pickedpassword)
-}
-
+  return password
 
 };
 
+
+function writePassword() {
+
+  var password = generatePassword();
+  if (password) {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+} 
+}
+
+generateBtn.addEventListener("click", writePassword);
