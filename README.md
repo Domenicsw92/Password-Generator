@@ -25,7 +25,7 @@ This is were the user will select their personal options for their password
 
 
 If no options are selected for the password the prompts will revert back giving you an error message
-![screenshot](./assets/image-videos/snap3.jpg)
+![screenshot](./assets/image-videos/snap-4.jpg)
 
 
 If at least one or more options are selected the password will generate 
