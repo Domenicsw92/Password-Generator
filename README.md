@@ -6,7 +6,7 @@ The project has been deployed on GitHub Pages  and is up and running follow the 
 https://domenicsw92.github.io/Password-Generator/
 
  This quick video will display how the deployed site works
-![screenshot](/assets/image-videos/Untitled_ Mar 7, 2021 2_05 PM.gif)
+![screenshot](./assets/image-videos/Untitled_ Mar 7, 2021 2_05 PM.gif)
 
 
 The site deploys with a clean look CSS was added to the background of the site and added box-shadowing from the original format.
